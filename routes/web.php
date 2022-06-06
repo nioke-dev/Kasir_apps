@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\SupplierController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,4 +25,12 @@ Route::get('/', [LoginController::class, 'index'])->middleware('guest');
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'authenticate'])->name('authenticate');
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
-Route::post('/logout', [LoginController::class, 'logout']);
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+
+
+// suppier
+Route::get('/supplier', [SupplierController::class, 'index'])->name('supplier.index')->middleware('auth');
+
+
+// suppier
+Route::get('/kategori_barang', [KategoriController::class, 'index'])->name('kategori.index')->middleware('auth');

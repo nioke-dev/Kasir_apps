@@ -134,14 +134,72 @@
                 <i class="fas fa-th-large"></i>
             </a>
         </li>
-        <li class="nav-item">
-            {{-- <a class="nav-link px-3" href="#">Logout</a> --}}
-            <form action="/logout" method="POST">
-                @csrf
-                <button type="submit" class="nav-link badge text-bg-danger me-2">Logout <i
-                        class="fa-solid fa-right-from-bracket"></i></button>
-            </form>
+        {{-- </li> --}}
+        <!-- Nav Item - User Information -->
+        <li class="nav-item dropdown no-arrow">
+            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ auth()->user()->names }}</span>
+                <img class="img-profile rounded-circle" width="30px"
+                    src="{{ asset('AdminLTE/dist/img/user2-160x160.jpg') }}">
+            </a>
+            <!-- Dropdown - User Information -->
+            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="#">
+                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                    Profile
+                </a>
+                <a class="dropdown-item" href="#">
+                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                    Settings
+                </a>
+                <a class="dropdown-item" href="#">
+                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                    Activity Log
+                </a>
+                <div class="dropdown-divider"></div>
+                {{-- <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                    Logout
+                </a> --}}
+                <a href="#" class="dropdown-item swal-confirm-logout">
+                    <form action="{{ route('logout') }}" method="POST" id="logout">
+                        @csrf
+                    </form>
+                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                    Logout
+                </a>
+            </div>
         </li>
     </ul>
 </nav>
 <!-- /.navbar -->
+
+@push('page-scripts')
+    <script src="{{ asset('sweetalert2/dist/sweetalert2.all.js') }}"></script>
+@endpush
+
+@push('after-scripts')
+    <script>
+        $(".swal-confirm-logout").click(function() {
+            Swal.fire({
+                title: 'Are you sure to Logout?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, Logout Now!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $('#logout').submit();
+                    Swal.fire(
+                        'Success',
+                        'Berhasil Logout',
+                        'success'
+                    )
+                }
+            })
+        })
+    </script>
+@endpush
