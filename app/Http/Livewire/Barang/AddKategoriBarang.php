@@ -10,10 +10,16 @@ class AddKategoriBarang extends Component
 
     public $jenis_barang;
 
+    protected $listeners = [
+        'simpanKategori' => 'render',
+    ];
+
+
     public function updates()
     {
         $this->validate([
             'jenis_barang' => 'required'
+
         ]);
     }
 

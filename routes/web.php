@@ -1,10 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\SupplierController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,5 +33,9 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/supplier', [SupplierController::class, 'index'])->name('supplier.index')->middleware('auth');
 
 
-// suppier
+// Kategori Barang
 Route::get('/kategori_barang', [KategoriController::class, 'index'])->name('kategori.index')->middleware('auth');
+
+
+// User Management
+Route::get('/user', [UserController::class, 'index'])->name('user.index')->middleware('auth');

@@ -4,7 +4,7 @@
             <label for="jenis_barang" class="col-3">Jenis Barang</label>
             <div class="col-9">
                 <input type="text" id="jenis_barang" class="form-control" wire:model='jenis_barang'
-                    placeholder="Type Here">
+                    placeholder="Type Here" autofocus>
                 @error('jenis_barang')
                     <span class="text-danger" style="font-size: 11.5px;">{{ $message }}</span>
                 @enderror

@@ -7,8 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Kasir Apps</title>
 
-    {{-- link bootstrap 5 --}}
-    <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.min.css') }}">
+
 
 
     <!-- Google Font: Source Sans Pro -->
@@ -24,9 +23,9 @@
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 
 
-    {{-- <!-- Tempusdominus Bootstrap 4 -->
+    <!-- Tempusdominus Bootstrap 4 -->
     <link rel="stylesheet"
-        href="{{ asset('AdminLTE/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css') }}"> --}}
+        href="{{ asset('AdminLTE/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css') }}">
 
 
     <!-- iCheck -->
@@ -36,6 +35,8 @@
     <!-- JQVMap -->
     <link rel="stylesheet" href="{{ asset('AdminLTE/plugins/jqvmap/jqvmap.min.css') }}">
 
+    {{-- link bootstrap 5 --}}
+    <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.min.css') }}">
 
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('AdminLTE/dist/css/adminlte.min.css') }}">
@@ -57,7 +58,11 @@
     @stack('livewire-styles')
 
 
-
+    <style>
+        .card-header {
+            background-color: #F7F7F7;
+        }
+    </style>
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
