@@ -106,6 +106,7 @@ class TableBarang extends Component
     {
         $barangs = barang::all();
         $kategoris = Kategori::all();
+
         return view('livewire.barang.table-barang', [
             'barangs' => $barangs,
             'kategoris' => $kategoris,
