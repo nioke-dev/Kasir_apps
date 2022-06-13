@@ -139,7 +139,7 @@
         <li class="nav-item dropdown no-arrow">
             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ auth()->user()->names }}</span>
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ auth()->user()->nama }}</span>
                 <img class="img-profile rounded-circle" width="30px"
                     src="{{ asset('AdminLTE/dist/img/user2-160x160.jpg') }}">
             </a>

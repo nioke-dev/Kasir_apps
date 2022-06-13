@@ -15,11 +15,10 @@ class AddKategoriBarang extends Component
     ];
 
 
-    public function updates()
+    public function updated()
     {
         $this->validate([
             'jenis_barang' => 'required'
-
         ]);
     }
 

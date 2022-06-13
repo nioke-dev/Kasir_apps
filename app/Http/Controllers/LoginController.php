@@ -17,6 +17,11 @@ class LoginController extends Controller
         ]);
     }
 
+    public function index2()
+    {
+        return view('welcome');
+    }
+
     public function authenticate(Request $request)
     {
         $credentials = $request->validate([

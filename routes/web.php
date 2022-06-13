@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BarangController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
@@ -22,9 +23,9 @@ use App\Http\Controllers\DashboardController;
 //     return view('index');
 // });
 
-Route::get('/', [LoginController::class, 'index'])->middleware('guest');
+Route::get('/', [LoginController::class, 'index2'])->middleware('guest');
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
-Route::post('/login', [LoginController::class, 'authenticate'])->name('authenticate');
+Route::post('/login', [LoginController::class, 'authenticate'])->name('authenticate')->middleware('guest');
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
@@ -39,3 +40,6 @@ Route::get('/kategori_barang', [KategoriController::class, 'index'])->name('kate
 
 // User Management
 Route::get('/user', [UserController::class, 'index'])->name('user.index')->middleware('auth');
+
+// Barang managament
+Route::get('/barang', [BarangController::class, 'index'])->name('barang.index')->middleware('auth');

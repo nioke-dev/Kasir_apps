@@ -16,13 +16,23 @@
                     alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">{{ auth()->user()->name }}</a>
+                <a href="#" class="d-block">{{ auth()->user()->nama }}</a>
             </div>
         </div>
 
         <!-- Sidebar Menu -->
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <li class="nav-item">
+                    <a href="{{ route('dashboard') }}"
+                        class="nav-link {{ Request::is('dashboard*') ? 'active' : '' }}">
+                        {{-- <i class="nav-icon fas fa-th"></i> --}}
+                        <i class="nav-icon fa-solid fa-gauge"></i>
+                        <p>
+                            Dashboard
+                        </p>
+                    </a>
+                </li>
                 <li class="nav-item">
                     <a href="{{ route('supplier.index') }}"
                         class="nav-link {{ Request::is('supplier*') ? 'active' : '' }}">
@@ -49,11 +59,23 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{ route('user.index') }}" class="nav-link {{ Request::is('user*') ? 'active' : '' }}">
+                    <a href="{{ route('user.index') }}"
+                        class="nav-link {{ Request::is('user*') ? 'active' : '' }}">
                         {{-- <i class="nav-icon fas fa-th"></i> --}}
                         <i class="nav-icon fa-solid fa-rectangle-list"></i>
                         <p>
                             User
+                        </p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('barang.index') }}"
+                        class="nav-link {{ Request::is('barang*') ? 'active' : '' }}">
+                        {{-- <i class="nav-icon fas fa-th"></i> --}}
+                        <i class="nav-icon fa-solid fa-rectangle-list"></i>
+                        <p>
+                            Barang
                         </p>
                     </a>
                 </li>

@@ -62,7 +62,21 @@
         .card-header {
             background-color: #F7F7F7;
         }
+
+        .card-header:first-child {
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .card {
+            border-radius: 10px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+        }
     </style>
+
+    @stack('custom-css')
+
+
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -84,7 +98,6 @@
         @include('layouts.partials.footer')
         @include('layouts.partials.controlSidebar')
     </div>
-
 
     {{-- Before Script --}}
     @stack('before-scripts')
@@ -174,12 +187,15 @@
     {{-- khusus alert --}}
     @stack('sweet-alert-scripts')
 
-
     {{-- script for livewire --}}
     @stack('livewire-scripts')
 
     {{-- After Script --}}
     @stack('after-scripts')
+
+
+
+
 
 </body>
 
